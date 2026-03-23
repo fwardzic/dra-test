@@ -1,0 +1,27 @@
+---
+apiVersion: cilium.io/v1
+kind: CiliumNetworkDriverClusterConfig
+metadata:
+  name: sriov-nodes-cluster-config
+nodeSelector:
+    matchLabels: 
+      sriov: true 
+spec:
+  driverName: "sriov.cilium.k8s.io"
+  deviceManagerConfigs:
+      sriov:
+        enabled: true
+        ifaces:
+          - ifName: enp12s0f0np0
+            vfCount: 32
+          - ifName: enp12s0f1np1
+            vfCount: 32
+  pools:
+    - name: leaf-101
+      filter:
+        pfNames:
+          - enp12s0f0np0
+    - name: leaf-102
+      filter:
+        pfNames:
+          - enp12s0f1np1

@@ -1,0 +1,20 @@
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumResourceIPPool
+metadata:
+  name: ip-pool-leaf-101
+spec:
+  ipv4:
+    cidrs:
+      - 10.10.1.0/24
+    maskSize: 27
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumResourceIPPool
+metadata:
+  name: ip-pool-leaf-102
+spec:
+  ipv4:
+    cidrs:
+      - 10.10.2.0/24
+    maskSize: 27

@@ -1,0 +1,21 @@
+---
+apiVersion: resource.k8s.io/v1
+kind: DeviceClass
+metadata:
+  name: leaf-101.sriov.cilium.k8s.io
+  namespace: kube-system
+spec:
+  selectors:
+  - cel:
+      expression: device.driver == "sriov.cilium.k8s.io" && device.attributes["sriov.cilium.k8s.io"].pool == "leaf-101"
+
+---
+apiVersion: resource.k8s.io/v1
+kind: DeviceClass
+metadata:
+  name: leaf-102.sriov.cilium.k8s.io
+  namespace: kube-system
+spec:
+  selectors:
+  - cel:
+      expression: device.driver == "sriov.cilium.k8s.io" && device.attributes["sriov.cilium.k8s.io"].pool == "leaf-102"

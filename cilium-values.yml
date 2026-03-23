@@ -1,0 +1,30 @@
+routingMode: native
+ipv4NativeRoutingCIDR: 100.64.0.0/16
+
+bpf:
+  hostLegacyRouting: false
+  masquerade: true
+
+ipam:
+  mode: cluster-pool
+bgpControlPlane:
+  enabled: true
+
+k8sServiceHost: 192.168.1.100
+k8sServicePort: "6443"
+kubeProxyReplacement: true
+
+debug:
+  enabled: true
+
+image:
+  override: "quay.io/fwardzic/cilium/cilium:latest"
+  pullPolicy: "Always"
+
+operator:
+  image: 
+    pullPolicy: "Always"
+    override: "quay.io/fwardzic/cilium/operator:latest" 
+
+networkDriver:
+  enabled: true
