@@ -15,6 +15,7 @@ spec:
             parameters:
               vlan: 3041
               ipv4Addr: 10.10.1.10/24
+              ipv6Addr: fd00:3041::10/80
         - requests:
             - leaf-102
           opaque:
@@ -22,6 +23,7 @@ spec:
             parameters:
               vlan: 3042
               ipv4Addr: 10.10.2.10/24
+              ipv6Addr: fd00:3042::10/80
       requests:
       - name: leaf-101
         exactly:
