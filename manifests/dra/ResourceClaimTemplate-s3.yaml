@@ -1,0 +1,33 @@
+---
+apiVersion: resource.k8s.io/v1
+kind: ResourceClaimTemplate
+metadata:
+  name: sriov-service-3
+  namespace: default
+spec:
+  spec:
+    devices:
+      config:
+        - requests:
+            - leaf-101
+          opaque:
+            driver: sriov.cilium.k8s.io
+            parameters:
+              vlan: 3045
+              ipv4Addr: 10.10.5.10/24
+              ipv6Addr: fd00:3045::10/80
+        - requests:
+            - leaf-102
+          opaque:
+            driver: sriov.cilium.k8s.io
+            parameters:
+              vlan: 3046
+              ipv4Addr: 10.10.6.10/24
+              ipv6Addr: fd00:3046::10/80
+      requests:
+      - name: leaf-101
+        exactly:
+          deviceClassName: leaf-101.sriov.cilium.k8s.io
+      - name: leaf-102
+        exactly:
+          deviceClassName: leaf-102.sriov.cilium.k8s.io

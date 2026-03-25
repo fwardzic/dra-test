@@ -8,6 +8,14 @@ spec:
   containers:
   - name: netshoot
     image: nicolaka/netshoot
+    command: ["/bin/bash"]
+    args: ["-c", "while true; do ping localhost; sleep 60;done"]
+    resources:
+     claims:
+       - name: sriov-vf-leaf-101-102-service-1
+       - name: sriov-vf-leaf-101-102-service-2
   resourceClaims:
-  - name: sriov-service-1
+  - name: sriov-vf-leaf-101-102-service-1
     resourceClaimTemplateName: sriov-service-1
+  - name: sriov-vf-leaf-101-102-service-2
+    resourceClaimTemplateName: sriov-service-2
