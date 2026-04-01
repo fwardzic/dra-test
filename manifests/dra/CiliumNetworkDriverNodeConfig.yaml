@@ -10,9 +10,9 @@ spec:
       enabled: true
       ifaces:
         - ifName: enp12s0f0np0
-          vfCount: 2
+          vfCount: 8
         - ifName: enp12s0f1np1
-          vfCount: 2
+          vfCount: 8
   pools:
     - name: leaf-101
       filter:

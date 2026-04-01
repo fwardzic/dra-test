@@ -7,7 +7,7 @@ spec:
   ipv4:
     cidrs:
       - 10.10.1.0/24
-    maskSize: 27
+    maskSize: 24
 ---
 apiVersion: cilium.io/v2alpha1
 kind: CiliumResourceIPPool
@@ -17,4 +17,4 @@ spec:
   ipv4:
     cidrs:
       - 10.10.2.0/24
-    maskSize: 27
+    maskSize: 24
