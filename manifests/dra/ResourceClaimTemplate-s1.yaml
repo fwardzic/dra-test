@@ -14,16 +14,14 @@ spec:
             driver: sriov.cilium.k8s.io
             parameters:
               vlan: 3041
-              ipv4Addr: 10.10.1.10/24
-              ipv6Addr: fd00:3041::10/80
+              ip-pool: ip-pool-leaf-101
         - requests:
             - leaf-102
           opaque:
             driver: sriov.cilium.k8s.io
             parameters:
               vlan: 3042
-              ipv4Addr: 10.10.2.10/24
-              ipv6Addr: fd00:3042::10/80
+              ip-pool: ip-pool-leaf-102
       requests:
       - name: leaf-101
         exactly:
