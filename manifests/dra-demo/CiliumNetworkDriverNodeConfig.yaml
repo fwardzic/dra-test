@@ -1,0 +1,24 @@
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumNetworkDriverNodeConfig
+metadata:
+  name: worker-3-bm
+spec:
+  driverName: "sriov.cilium.k8s.io"
+  deviceManagerConfigs:
+    sriov:
+      enabled: true
+      ifaces:
+        - ifName: enp12s0f0np0
+          vfCount: 8
+        - ifName: enp12s0f1np1
+          vfCount: 8
+  pools:
+    - name: leaf-101
+      filter:
+        pfNames:
+          - enp12s0f0np0
+    - name: leaf-102
+      filter:
+        pfNames:
+          - enp12s0f1np1
