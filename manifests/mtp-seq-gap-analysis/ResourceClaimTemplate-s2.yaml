@@ -2,7 +2,7 @@
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
-  name: service-2
+  name: sriov-demo-service
   namespace: default
 spec:
   spec:
@@ -14,14 +14,16 @@ spec:
             driver: sriov.cilium.k8s.io
             parameters:
               vlan: 3043
-              networkConfig: service-2a-network-config
+              ipv4Addr: 10.10.3.10/24
+              ipv6Addr: fd00:3043::10/80
         - requests:
             - leaf-102
           opaque:
             driver: sriov.cilium.k8s.io
             parameters:
               vlan: 3044
-              networkConfig: service-2b-network-config
+              ipv4Addr: 10.10.4.10/24
+              ipv6Addr: fd00:3044::10/80
       requests:
       - name: leaf-101
         exactly:

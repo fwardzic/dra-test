@@ -1,0 +1,29 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumResourceNetworkConfig
+metadata:
+  name: service-1a-network-config
+spec:
+  - nodeSelector:
+      matchLabels:
+        sriov: "true"
+    ipPool: service-1a-ip-pool
+    ipv4:
+      netMask: 24
+      staticRoutes:
+        - destination: 232.2.1.0/24
+          gateway: 10.10.1.1
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumResourceNetworkConfig
+metadata:
+  name: service-1b-network-config
+spec:
+  - nodeSelector:
+      matchLabels:
+        sriov: "true"
+    ipPool: service-1b-ip-pool
+    ipv4:
+      netMask: 24
+      staticRoutes:
+        - destination: 232.2.2.0/24
+          gateway: 10.10.2.1

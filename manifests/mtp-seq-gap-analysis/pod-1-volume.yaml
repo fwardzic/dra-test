@@ -10,6 +10,15 @@ spec:
     image: nicolaka/netshoot
     command: ["/bin/bash"]
     args: ["-c", "while true; do ping localhost; sleep 60;done"]
+    volumeMounts:
+    - mountPath: /tmp/pcap
+      name: pcap
+      readOnly: true
   resourceClaims:
-  - name: service-1-claim
-    resourceClaimTemplateName: service-1
+  - name: demo-claim
+    resourceClaimTemplateName: sriov-demo-service
+  volumes:
+  - name: pcap
+    hostPath:
+      path: /home/cisco/pcap
+      type: Directory

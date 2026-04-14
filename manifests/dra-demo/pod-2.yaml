@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: netshoot-sriov-1
+  name: netshoot-sriov-2
   namespace: default
 spec:
   containers:
@@ -11,5 +11,5 @@ spec:
     command: ["/bin/bash"]
     args: ["-c", "while true; do ping localhost; sleep 60;done"]
   resourceClaims:
-  - name: service-1-claim
-    resourceClaimTemplateName: service-1
+  - name: service-2-claim
+    resourceClaimTemplateName: service-2

@@ -1,0 +1,13 @@
+apiVersion: cilium.io/v1alpha1
+kind: AlertRule
+metadata:
+  name: multicast-sequence-gap
+spec:
+  expression: |
+    process_udp_seq_check_error.seq_num_received > process_udp_seq_check_error.seq_num_expected
+  message: >
+    Multicast sequence gap detected on line_id=%{process_udp_seq_check_error.app_specific_id}:
+    expected %{process_udp_seq_check_error.seq_num_expected},
+    received %{process_udp_seq_check_error.seq_num_received}
+  tags: [multicast, sequence-gap, lseg-mtp]
+  severity: warning
